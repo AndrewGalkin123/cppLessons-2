@@ -1,14 +1,11 @@
-//
-//  main.cpp
-//  cppLessons
-//
-//  Created by Андрей on 29.07.2024.
-//
-
 #include <iostream>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
+int main() {
+   
     std::cout << "Hello, World!\n";
+    int a;
+    std::cout << "A: ";
+    std::cin >>  a;
+    std::cout << a << "\n";
     return 0;
 }
