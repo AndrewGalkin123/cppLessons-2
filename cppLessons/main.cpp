@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -21,6 +22,11 @@ int main() {
     cout << &val << " - " << val << endl;
     cout << ptrval << " - " << *ptrval << endl;
     
+    ofstream file("test.doc", ios_base::out);
+    if(file.is_open()){
+        file << "Hello world";
+        file.close();
+    }
     
     return 0;
 }
