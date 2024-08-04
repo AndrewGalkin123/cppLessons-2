@@ -1,26 +1,25 @@
 #include <iostream>
-#include <string>
 
 using namespace std;
 
 
+
 int main() {
-    int *nums = new int[3];
-    nums[0] = 45;
-    cout << nums[0] << endl;
-    delete[] nums;
     
-    char word[] = {'H', 'i'};
-    for(int i = 0; i < 2; i++){
-        cout << word[i];
-    }
+    int num = 10;
+    int &a = num;
     
-    string words = "Hello world!";
-    cout << "\n" << words << endl;
+    cout << &num << " - " << num << endl;
+    cout << &a << " - " << a << endl;
     
-    cout << "New: ";
-    cin >> words;
-    cout << words << endl;
+    int val = 12;
+    int* ptrval = &val;
+    
+    
+    
+    
+    cout << &val << " - " << val << endl;
+    cout << ptrval << " - " << *ptrval << endl;
     
     
     return 0;
