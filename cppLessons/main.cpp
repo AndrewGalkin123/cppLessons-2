@@ -1,11 +1,27 @@
 #include <iostream>
-#include <fstream>
 
 using namespace std;
 
+struct Point{
+    int x, y;
+};
+
+struct Tree {
+    string name;
+    int age;
+    bool is_alive;
+    float height;
+    Point place;
+    
+    void get_info(){
+        cout << "Name: " << name << ". Age: " << age << endl;
+    }
+};
 
 
 int main() {
+    
+    setlocale(LC_ALL, "RU");
     
     int num = 10;
     int &a = num;
@@ -22,11 +38,18 @@ int main() {
     cout << &val << " - " << val << endl;
     cout << ptrval << " - " << *ptrval << endl;
     
-    ofstream file("test.doc", ios_base::out);
-    if(file.is_open()){
-        file << "Hello world";
-        file.close();
-    }
+    Tree oak;
+    oak.name = "Дуб";
+    oak.age = 24;
+    oak.place.x = 232;
+    oak.place.y = 100;
+    
+    oak.get_info();
+    
+    
+    
+    
+    
     
     return 0;
 }
