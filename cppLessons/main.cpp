@@ -3,32 +3,43 @@
 
 using namespace std;
 
-class Building {
+class Car;
+class Person{
 private:
-    int year;
-    string type;
+    int age;
+    string name;
 public:
-    Building(int year, string type){
-        set_data(year,type);
+    Person(int age,string name){
+        this->age = age;
+        this->name = name;
     }
-public:
-    void set_data(int year, string type){
-        this->year = year;
-        this->type = type;
-    }
-    void get_info(){
-        cout << "Type: " << type << ". Year: " << year << endl;
-    }
-    ~Building(){
-        cout << "Object was deleted" << endl;
-    }
+    friend void info_car(Car& car,Person& person);
 };
+
+
+class Car {
+private:
+    string name;
+public:
+    Car(string name){
+        this->name = name;
+    }
+    friend void info_car(Car& car,Person& person);
+    
+};
+
+void info_car(Car& car,Person& person){
+    cout << "Человек с именем: " << person.name << " имеет машину: " << car.name << endl;
+}
+
+
+
 
 int main(){
     setlocale(LC_ALL, "RU");
     
-    Building school(2003, "Школа");
-    school.get_info();
-    Building house(2023, "Дом");
-    house.get_info();
+    Car bmw("BMW");
+    Person John(23,"John");
+    
+    info_car(bmw, John);
 }
