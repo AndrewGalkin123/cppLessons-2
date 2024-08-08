@@ -1,55 +1,34 @@
-#include <iostream>
+#include "iostream"
+#include "string"
 
 using namespace std;
 
-struct Point{
-    int x, y;
-};
-
-struct Tree {
-    string name;
-    int age;
-    bool is_alive;
-    float height;
-    Point place;
-    
+class Building {
+private:
+    int year;
+    string type;
+public:
+    Building(int year, string type){
+        set_data(year,type);
+    }
+public:
+    void set_data(int year, string type){
+        this->year = year;
+        this->type = type;
+    }
     void get_info(){
-        cout << "Name: " << name << ". Age: " << age << endl;
+        cout << "Type: " << type << ". Year: " << year << endl;
+    }
+    ~Building(){
+        cout << "Object was deleted" << endl;
     }
 };
 
-
-int main() {
-    
+int main(){
     setlocale(LC_ALL, "RU");
     
-    int num = 10;
-    int &a = num;
-    
-    cout << &num << " - " << num << endl;
-    cout << &a << " - " << a << endl;
-    
-    int val = 12;
-    int* ptrval = &val;
-    
-    
-    
-    
-    cout << &val << " - " << val << endl;
-    cout << ptrval << " - " << *ptrval << endl;
-    
-    Tree oak;
-    oak.name = "Дуб";
-    oak.age = 24;
-    oak.place.x = 232;
-    oak.place.y = 100;
-    
-    oak.get_info();
-    
-    
-    
-    
-    
-    
-    return 0;
+    Building school(2003, "Школа");
+    school.get_info();
+    Building house(2023, "Дом");
+    house.get_info();
 }
