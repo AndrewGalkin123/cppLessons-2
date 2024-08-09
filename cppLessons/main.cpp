@@ -3,43 +3,38 @@
 
 using namespace std;
 
-class Car;
-class Person{
+class PC {
 private:
-    int age;
-    string name;
+    int diagonal;
+    string os;
 public:
-    Person(int age,string name){
-        this->age = age;
-        this->name = name;
+    PC(int diagonal, string os){
+        this->diagonal = diagonal;
+        this->os = os;
     }
-    friend void info_car(Car& car,Person& person);
+    void get_info(){
+        cout << "OS: " << os << " Diagonal: " << diagonal;
+    }
 };
 
-
-class Car {
+class Laptop: public PC{
 private:
-    string name;
+    float weight;
 public:
-    Car(string name){
-        this->name = name;
+    Laptop(int diagonal, string os, float weight): PC(diagonal, os){
+        this->weight = weight;
     }
-    friend void info_car(Car& car,Person& person);
-    
+    void get_info(){
+        PC::get_info();
+        cout << ". Weight: " << weight << endl;
+    }
 };
-
-void info_car(Car& car,Person& person){
-    cout << "Человек с именем: " << person.name << " имеет машину: " << car.name << endl;
-}
-
-
-
 
 int main(){
     setlocale(LC_ALL, "RU");
     
-    Car bmw("BMW");
-    Person John(23,"John");
-    
-    info_car(bmw, John);
+    Laptop mac(16, "MacOS", 1.5f);
+   
+    mac.get_info();
+   
 }
